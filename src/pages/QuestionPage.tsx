@@ -1,5 +1,5 @@
 import QuestionFragment from "../components/QuestionFragment";
-import { Accordion } from "@mantine/core";
+import { Accordion, Loader } from "@mantine/core";
 import { useEffect, useState } from "react";
 import LinkButton from "../components/LinkButton";
 import { useGlobalContext } from "../context/globalContext";
@@ -104,7 +104,11 @@ const QuestionPage = () => {
     <div className="flex py-16">
       <div className="max-w-6xl">
         {isLoaded && <QuestionFragment question={currentQuestion} />}
-        {isLoaded || <div>Loading...</div>}
+        {isLoaded || (
+          <div className="flex h-screen w-full pt-32 justify-center">
+            <Loader />
+          </div>
+        )}
       </div>
       <div className="pr-16 pl-8 border-l-2 border-dashed border-opacity-30 border-white w-full">
         <h3 className="text-3xl font-bold text-center pb-8">Problem List</h3>

@@ -1,4 +1,4 @@
-import { Pagination } from "@mantine/core";
+import { Loader, Pagination } from "@mantine/core";
 import { IconX } from "@tabler/icons";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -139,7 +139,11 @@ const Leaderboard = () => {
   //   { rank: 10, name: "WeLoveFORTRAN", earned: 260, penalty: 30, points: 230 },
   // ];
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-screen w-full pt-32 justify-center">
+        <Loader />
+      </div>
+    );
   } else {
     return (
       <div className="flex flex-col align-middle">

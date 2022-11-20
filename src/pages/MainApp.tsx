@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context/globalContext";
 import { IconX } from "@tabler/icons";
+import { Loader } from "@mantine/core";
 
 const MainApp = () => {
   const navigate = useNavigate();
@@ -59,7 +60,11 @@ const MainApp = () => {
   }, []);
 
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-screen w-full pt-32 justify-center">
+        <Loader />
+      </div>
+    );
   } else {
     return (
       <div className="px-8 pt-16 pb-8 flex justify-between md:flex-col lg:flex-row">
