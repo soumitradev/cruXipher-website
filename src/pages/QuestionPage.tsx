@@ -118,7 +118,7 @@ const QuestionPage = () => {
               onCorrect={reloadQuestions}
             />
           </div>
-          <div className="pr-16 pl-8 border-l-2 border-dashed border-opacity-30 border-white w-[40rem]">
+          <div className="pr-16 pl-8 border-l-2 border-dashed border-opacity-30 border-white w-[40em]">
             <h3 className="text-3xl font-bold text-center pb-8">
               Problem List
             </h3>
