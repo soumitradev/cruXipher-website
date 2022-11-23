@@ -1,6 +1,6 @@
 import QuestionFragment from "../components/QuestionFragment";
 import { Accordion, Loader } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import LinkButton from "../components/LinkButton";
 import { useGlobalContext } from "../context/globalContext";
 import { IconCheck, IconX } from "@tabler/icons";
@@ -106,7 +106,7 @@ const QuestionPage = () => {
   useEffect(() => {
     loadQuestion();
     loadQuestions();
-  }, []);
+  }, [params]);
 
   return (
     <>
@@ -135,7 +135,6 @@ const QuestionPage = () => {
             >
               {questionsList.map((domain, _) => {
                 return (
-                  // TODO:Change chevron size after a meet
                   <Accordion.Item value={domain.topic} key={domain.topic}>
                     <Accordion.Control>{domain.topic}</Accordion.Control>
                     <Accordion.Panel>
