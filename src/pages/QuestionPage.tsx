@@ -112,7 +112,7 @@ const QuestionPage = () => {
     <>
       {questionLoaded && questionsLoaded ? (
         <div className="flex py-16 w-full">
-          <div className="grow">
+          <div className="w-full">
             <QuestionFragment
               question={currentQuestion}
               onCorrect={reloadQuestions}
