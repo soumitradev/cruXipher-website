@@ -7,6 +7,7 @@ import useInterval from "../hooks/useInterval";
 
 const Navbar = () => {
   const [points, setPoints] = useState(0);
+  const [hintsLeft, setHintsLeft] = useState(0);
   const [time, setTime] = useState(
     new Date(1669458600000 - new Date().getTime())
   );
@@ -77,8 +78,8 @@ const Navbar = () => {
     loadTimer();
   };
 
-  const updatePoints = async () => {
-    const loadPoints = async () => {
+  const updatePointsAndHints = async () => {
+    const loadPointsAndHints = async () => {
       const res = await fetch(
         (import.meta.env.VITE_BACKEND_URL
           ? import.meta.env.VITE_BACKEND_URL
@@ -95,7 +96,9 @@ const Navbar = () => {
       );
       const result = await res.json();
       if (res.status === 200) {
+        // TODO: Decide how many hints total
         setPoints(result.points);
+        setHintsLeft(5 - result.hintsUsed);
       } else {
         globalDispatch({
           type: "show error",
@@ -107,40 +110,11 @@ const Navbar = () => {
         });
       }
     };
-    loadPoints();
+    loadPointsAndHints();
   };
 
   useEffect(() => {
-    const loadPoints = async () => {
-      const res = await fetch(
-        (import.meta.env.VITE_BACKEND_URL
-          ? import.meta.env.VITE_BACKEND_URL
-          : "") + "/api/points",
-        {
-          method: "GET",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-          },
-          mode: "cors",
-        }
-      );
-      const result = await res.json();
-      if (res.status === 200) {
-        setPoints(result.points);
-      } else {
-        globalDispatch({
-          type: "show error",
-          payload: {
-            title: result.message,
-            icon: <IconX size={18} />,
-            message: undefined,
-          },
-        });
-      }
-    };
-    loadPoints();
+    updatePointsAndHints();
   }, []);
 
   useInterval(() => {
@@ -148,7 +122,7 @@ const Navbar = () => {
   }, 1000);
 
   useInterval(() => {
-    updatePoints();
+    updatePointsAndHints();
   }, 60000);
 
   useInterval(() => {
@@ -181,7 +155,8 @@ const Navbar = () => {
           </div>
         </div>
         <div className="right-nav flex items-center gap-4 sm:flex-col lg:flex-row">
-          <a className="text-white text-xl">{points} points</a>
+          <a className="text-white text-xl">[Hints Left: {hintsLeft}]</a>
+          <a className="text-white text-xl">[{points} points]</a>
           <a className="text-white text-xl">
             [
             {`${String(time.getHours()).padStart(2, "0")}:${String(
