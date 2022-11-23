@@ -111,14 +111,14 @@ const QuestionPage = () => {
   return (
     <>
       {questionLoaded && questionsLoaded ? (
-        <div className="flex py-16">
-          <div className="max-w-6xl">
+        <div className="flex py-16 w-full">
+          <div className="grow">
             <QuestionFragment
               question={currentQuestion}
               onCorrect={reloadQuestions}
             />
           </div>
-          <div className="pr-16 pl-8 border-l-2 border-dashed border-opacity-30 border-white w-full">
+          <div className="pr-16 pl-8 border-l-2 border-dashed border-opacity-30 border-white w-[40rem]">
             <h3 className="text-3xl font-bold text-center pb-8">
               Problem List
             </h3>
