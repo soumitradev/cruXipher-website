@@ -5,7 +5,13 @@ import { IconX, IconCheck } from "@tabler/icons";
 import Question from "../types/Question";
 import CustomInput from "./CustomInput";
 
-const QuestionFragment = ({ question }: { question: Question }) => {
+const QuestionFragment = ({
+  question,
+  onCorrect,
+}: {
+  question: Question;
+  onCorrect: Function;
+}) => {
   const { globalDispatch } = useGlobalContext();
   const flagRef = useRef<HTMLInputElement>(null);
 
@@ -183,6 +189,7 @@ const QuestionFragment = ({ question }: { question: Question }) => {
           message: result.message,
         },
       });
+      onCorrect();
     } else {
       globalDispatch({
         type: "update notification",
