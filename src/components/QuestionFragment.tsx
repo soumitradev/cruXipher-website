@@ -4,6 +4,7 @@ import { useGlobalContext } from "../context/globalContext";
 import { IconX, IconCheck } from "@tabler/icons";
 import Question from "../types/Question";
 import CustomInput from "./CustomInput";
+import { Anchor } from "@mantine/core";
 
 const QuestionFragment = ({
   question,
@@ -219,6 +220,17 @@ const QuestionFragment = ({
           {question.body.split("\\n").map((paragraphText) => (
             <>
               {paragraphText}
+              <br />
+              <br />
+            </>
+          ))}
+        </p>
+        <p className="text-xl font-normal pt-4 block">
+          {question.links.map((link, i) => (
+            <>
+              <Anchor href={link} target="_blank">
+                Link {i}
+              </Anchor>
               <br />
               <br />
             </>
