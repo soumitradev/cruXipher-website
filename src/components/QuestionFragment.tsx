@@ -229,7 +229,7 @@ const QuestionFragment = ({
           {question.links.map((link, i) => (
             <>
               <Anchor href={link} className="font-mono" target="_blank">
-                Link {i}
+                Link {i + 1}
               </Anchor>
               <br />
               <br />
