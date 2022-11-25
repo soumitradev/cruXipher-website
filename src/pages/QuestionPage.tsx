@@ -6,6 +6,7 @@ import { useGlobalContext } from "../context/globalContext";
 import { IconCheck, IconX } from "@tabler/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import Question from "../types/Question";
+import Twemoji from "../components/Twemoji";
 
 const QuestionPage = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const QuestionPage = () => {
       topic: string;
       points: number;
       questions: {
+        solved: any;
         slug: string;
         title: string;
         points: number;
@@ -152,8 +154,18 @@ const QuestionPage = () => {
                           >
                             {question.locked ? (
                               <span>
-                                {question.title} [{question.points}] 🔒
+                                {question.title} [{question.points}]{" "}
+                                <Twemoji emoji="🔒" />
                               </span>
+                            ) : question.solved ? (
+                              <LinkButton
+                                linkText={`${question.title} [${question.points}] `}
+                                twemoji="✅"
+                                url={`/question/${question.slug}`}
+                                textColor={"text-white"}
+                                textSize={"text-base"}
+                                className="hover:bg-white decoration-white/0 hover:decoration-white/100"
+                              />
                             ) : (
                               <LinkButton
                                 linkText={`${question.title} [${question.points}]`}

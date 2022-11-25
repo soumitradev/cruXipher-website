@@ -16,6 +16,7 @@ const MainApp = () => {
       topic: string;
       points: number;
       questions: {
+        solved: any;
         slug: string;
         title: string;
         points: number;
@@ -94,12 +95,21 @@ const MainApp = () => {
                               {question.title} [{question.points}]{" "}
                               <Twemoji emoji="🔒" />
                             </span>
+                          ) : question.solved ? (
+                            <LinkButton
+                              linkText={`${question.title} [${question.points}] `}
+                              twemoji="✅"
+                              url={`/question/${question.slug}`}
+                              textColor={"text-white"}
+                              textSize={"text-xl"}
+                              className="hover:bg-white decoration-white/0 hover:decoration-white/100"
+                            />
                           ) : (
                             <LinkButton
                               linkText={`${question.title} [${question.points}]`}
                               url={`/question/${question.slug}`}
                               textColor={"text-white"}
-                              textSize="text-xl"
+                              textSize={"text-xl"}
                               className="hover:bg-white decoration-white/0 hover:decoration-white/100"
                             />
                           )}
