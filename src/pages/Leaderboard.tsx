@@ -149,13 +149,12 @@ const Leaderboard = () => {
       <div className="flex flex-col align-middle">
         <div className="flex flex-col align-middle pt-16 px-32 sm:px-28">
           <span className="text-3xl font-bold text-center">LEADERBOARD</span>
-          <div className="grid grid-cols-5 gap-4 pt-8">
+          <div className="grid grid-cols-4 gap-4 pt-8">
             <span className="text-2xl font-bold text-center">Team Name</span>
             <span className="text-2xl font-bold text-center">
               Points Earned
             </span>
             <span className="text-2xl font-bold text-center">Bonus</span>
-            <span className="text-2xl font-bold text-center">Penalty</span>
             <span className="text-2xl font-bold text-center">Score</span>
 
             <span className="text-xl pl-16">
@@ -165,12 +164,11 @@ const Leaderboard = () => {
               {teams.self.pointsEarned}
             </span>
             <span className="text-xl text-center">{teams.self.bonus}</span>
-            <span className="text-xl text-center">{teams.self.penalty}</span>
             <span className="text-xl text-center">
               {teams.self.points} Points
             </span>
 
-            <div className="col-span-5 border-dashed border-opacity-30 border-white w-full border-b"></div>
+            <div className="col-span-4 border-dashed border-opacity-30 border-white w-full border-b"></div>
             {teams.leaderboard.map((team) => (
               <>
                 <span className="text-xl pl-16">
@@ -178,7 +176,6 @@ const Leaderboard = () => {
                 </span>
                 <span className="text-xl text-center">{team.pointsEarned}</span>
                 <span className="text-xl text-center">{team.bonus}</span>
-                <span className="text-xl text-center">{team.penalty}</span>
                 <span className="text-xl text-center">
                   {team.points} Points
                 </span>
