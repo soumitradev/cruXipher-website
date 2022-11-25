@@ -228,7 +228,7 @@ const QuestionFragment = ({
         <p className="text-xl font-normal pt-4 block">
           {question.links.map((link, i) => (
             <>
-              <Anchor href={link} target="_blank">
+              <Anchor href={link} className="font-mono" target="_blank">
                 Link {i}
               </Anchor>
               <br />
