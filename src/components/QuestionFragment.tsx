@@ -103,7 +103,7 @@ const QuestionFragment = ({
           centered: true,
           children: (
             <span className="text-lg font-mono">
-              Taking a hint will incur a penalty of 20 points. Do you want to
+              Taking a hint will incur a penalty of 50% of the points of the question. Do you want to
               proceed?
             </span>
           ),
