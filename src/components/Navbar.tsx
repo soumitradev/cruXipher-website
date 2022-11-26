@@ -127,7 +127,7 @@ const Navbar = () => {
 
   useInterval(() => {
     updateTimer();
-  }, 10000);
+  }, 60000);
 
   return (
     <>
