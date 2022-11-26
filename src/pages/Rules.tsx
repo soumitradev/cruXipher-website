@@ -37,6 +37,13 @@ const Rules = () => {
         <li className="text-2xl pt-1 font-normal">
           <p>Mobile phones will not be allowed inside the venue.</p>
         </li>
+        <li className="text-2xl pt-1 font-normal">
+          <p>
+            All instances of cheating will result in immediate disqualification
+            of the team, and the members of the team will be blacklisted from
+            all other events.
+          </p>
+        </li>
       </ol>
       <h3 className="font-bold text-2xl pt-10">Duration : 2 hours</h3>
     </div>
