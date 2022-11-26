@@ -63,7 +63,7 @@ const Navbar = () => {
       );
       const result = await res.json();
       if (res.status === 200) {
-        setTime(new Date(result.timeLeft));
+        setTime(new Date(result.timeLeft - 19800000));
       } else {
         globalDispatch({
           type: "show error",
@@ -127,7 +127,7 @@ const Navbar = () => {
 
   useInterval(() => {
     updateTimer();
-  }, 60000);
+  }, 10000);
 
   return (
     <>
