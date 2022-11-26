@@ -9,7 +9,7 @@ const Navbar = () => {
   const [points, setPoints] = useState(0);
   const [hintsLeft, setHintsLeft] = useState(0);
   const [time, setTime] = useState(
-    new Date(1669458600000 - new Date().getTime())
+    new Date(1669461300000 - new Date().getTime())
   );
   const navigate = useNavigate();
   const { globalDispatch } = useGlobalContext();
