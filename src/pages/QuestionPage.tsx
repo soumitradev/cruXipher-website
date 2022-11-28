@@ -10,7 +10,7 @@ import Twemoji from "../components/Twemoji";
 
 const QuestionPage = () => {
   const navigate = useNavigate();
-  if (!sessionStorage.getItem("token")) navigate("/login");
+  if (!sessionStorage.getItem("token")) navigate("/leaderboardPublic");
   const { globalDispatch } = useGlobalContext();
   const [questionLoaded, setQuestionLoaded] = useState(false);
   const [questionsLoaded, setQuestionsLoaded] = useState(false);

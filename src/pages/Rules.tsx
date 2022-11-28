@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 const Rules = () => {
   const navigate = useNavigate();
-  if (!sessionStorage.getItem("token")) navigate("/login");
+  if (!sessionStorage.getItem("token")) navigate("/leaderboardPublic");
   return (
     <div className="px-32 pt-16 pb-8">
       <h1 className="font-bold text-4xl text-center">Rules</h1>

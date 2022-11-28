@@ -8,7 +8,7 @@ import LeaderboardType from "../types/Leaderboard";
 
 const Leaderboard = () => {
   const navigate = useNavigate();
-  if (!sessionStorage.getItem("token")) navigate("/login");
+  if (!sessionStorage.getItem("token")) navigate("/leaderboardPublic");
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [teams, setTeams] = useState({} as LeaderboardType);

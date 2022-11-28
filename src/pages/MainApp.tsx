@@ -8,7 +8,7 @@ import { Loader } from "@mantine/core";
 
 const MainApp = () => {
   const navigate = useNavigate();
-  if (!sessionStorage.getItem("token")) navigate("/login");
+  if (!sessionStorage.getItem("token")) navigate("/leaderboardPublic");
   const [isLoaded, setIsLoaded] = useState(false);
   const { globalDispatch } = useGlobalContext();
   const [questionsList, setQuestionsList] = useState(
