@@ -1,4 +1,4 @@
-interface RankedTeam {
+export interface RankedTeam {
   rank: number;
   username: string;
   pointsEarned: number;

@@ -15,6 +15,7 @@ import { ModalsProvider } from "@mantine/modals";
 import { useBeforeunload } from "react-beforeunload";
 import { useGlobalContext } from "./context/globalContext";
 import { IconX } from "@tabler/icons";
+import LeaderboardPublic from "./pages/LeaderboardPublic";
 
 const App = () => {
   const { globalDispatch } = useGlobalContext();
@@ -66,6 +67,10 @@ const App = () => {
                     <Route path="/leaderboard" element={<Leaderboard />} />
                   </Route>
                   <Route path="/login" element={<Login />} />
+                  <Route
+                    path="/leaderboardPublic"
+                    element={<LeaderboardPublic />}
+                  />
                   <Route path="/question" element={<PageLayout />}>
                     <Route path=":slug" element={<QuestionPage />} />
                   </Route>
